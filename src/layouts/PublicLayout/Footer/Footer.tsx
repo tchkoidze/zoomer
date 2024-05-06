@@ -1,4 +1,3 @@
-import LanguageSelector from "./LanguageSelector/LanguageSelector";
 import FooterColumns from "./FooterColumns/FooterColumns";
 
 export default function Footer() {
