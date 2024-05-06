@@ -1,10 +1,13 @@
 import { ProductCategory } from "@src/@types/types";
 import { useProductsProvider } from "@src/providers/ProductsProvider/useProductsProvider";
+import { FormattedMessage } from "react-intl";
 import { useNavigate } from "react-router-dom";
 
 export default function CategoriesTab() {
   const { categories } = useProductsProvider();
   const navigate = useNavigate();
+
+  console.log("categotyes: ", categories);
 
   const tabItems = categories.map((cat: ProductCategory, index: number) => {
     const isLastItem = index === categories.length - 1;
@@ -27,7 +30,8 @@ export default function CategoriesTab() {
         <p
           className={`py-3 firago-medium text-xs leading-[14px] text-black-08 dark:text-dark-black-8 opacity-80`}
         >
-          {cat.name}
+          {/*cat.name*/}
+          <FormattedMessage id={cat.name} />
         </p>
       </div>
     );

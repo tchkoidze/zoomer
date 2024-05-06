@@ -1,68 +1,83 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import "./assets/fonts/fonts.css";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.custom-container {
+  @apply w-[100%] xl:w-[1248px] mx-auto px-4;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.firago-normal {
+  @apply font-firago font-[400];
 }
-button:hover {
-  border-color: #646cff;
+.firago-medium {
+  @apply font-firago font-[500];
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.firago-semibold {
+  @apply font-firago font-[600];
+}
+.firago-bold {
+  @apply font-firago font-[700];
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* style overwrites for antd components */
+.custom-input .ant-input,
+.custom-input .ant-input-password,
+.custom-addon .ant-select-selection-item {
+  @apply firago-medium;
+}
+
+.custom-addon .ant-input-wrapper .ant-input-group-addon {
+  @apply !bg-[rgba(221,220,220,0.95)] dark:!bg-[rgba(0,0,0,0.15)];
+}
+
+.custom-addon .ant-select-selection-item {
+  @apply text-black-main dark:text-dark-black-main;
+}
+
+.ant-select-item-option-content {
+  @apply text-black-main dark:text-dark-black-07;
+}
+
+.ant-form-item-explain-error,
+.custom-select .ant-select-selection-item,
+.custom-select .ant-select-selection-placeholder,
+.ant-select-item-option-content {
+  @apply firago-bold;
+}
+
+.custom-addon .ant-input-group-addon {
+  @apply bg-[rgb(242,242,242)] !important;
+}
+.custom-addon .ant-select-arrow {
+  @apply dark:text-black-main opacity-95;
+}
+.shadow-top {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px -4px 4px;
+}
+
+/*custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-3 h-3;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-scrollbar-orange rounded-[10px] border-2 border-solid border-transparent bg-clip-padding;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply border-0;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white-400 dark:bg-dark-white-400;
 }
